@@ -208,6 +208,7 @@ public class DefaultTokenServices implements AuthorizationServerTokenServices, R
 			}
 		}
 		narrowed = new OAuth2Authentication(clientAuth, authentication.getUserAuthentication());
+		narrowed.setDetails(authentication.getDetails());
 		return narrowed;
 	}
 
