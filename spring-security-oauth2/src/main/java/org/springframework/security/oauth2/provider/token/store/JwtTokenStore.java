@@ -109,9 +109,10 @@ public class JwtTokenStore implements TokenStore {
 				Collection<Approval> approvals = approvalStore.getApprovals(userId, clientId);
 				Collection<String> approvedScopes = new HashSet<String>();
 				for (Approval approval : approvals) {
-					if (approval.isApproved()) {
+// TEMPO:f.denommee : why ?
+//					if (approval.isApproved()) {
 						approvedScopes.add(approval.getScope());
-					}
+//					}
 				}
 				if (!approvedScopes.containsAll(authentication.getOAuth2Request().getScope())) {
 					return null;
